@@ -107,6 +107,8 @@ def save_current_game():
         current_user_highest_score = current_user_current_score
     user_data[current_user_name] = [current_user_highest_score, current_user_average_score, current_user_played_times]
 
+    save_game()
+
 
 def set_random_position_value():
     if check_exist_position():
@@ -386,11 +388,12 @@ def start_events_loop():
         save_current_game()
 
         while True:
-            print("C:to start a new game")
+            print("C:to start a new game; Q:to quit")
             key = get_keyboard()
             if key == "Continue":
                 break
-
+            elif key == "Quit":
+                quit_game()
 
 # Run from here
 init_game()
