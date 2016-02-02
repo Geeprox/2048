@@ -231,7 +231,6 @@ def move_right():
 
 
 def check_result():
-    line, column = find_random_position()
     not_game_over = False
 
     if not check_exist_position():
