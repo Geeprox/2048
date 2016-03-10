@@ -12,9 +12,9 @@ path_of_date_file = './data/'
 name_of_data_file = 'score.dat'
 game_title = "==========[2048]=========="
 
+matrix_n = 3
 matrix = []
 random_options_list = []
-matrix_n = 4
 user_data = {}
 
 current_user_name = ""
@@ -29,12 +29,13 @@ nothing_done = False
 
 def init_matrix():
     global matrix
-    matrix = [
-        [0, 0, 0, 0],
-        [0, 0, 0, 0],
-        [0, 0, 0, 0],
-        [0, 0, 0, 0],
-    ]
+    matrix = []
+    for line in range(matrix_n):
+        line_list = []
+        for column in range(matrix_n):
+            line_list.append(0)
+        matrix.append(line_list)
+
 
 
 def load_data_file():
@@ -261,7 +262,7 @@ def print_matrix():
                 print("|" + "".center(4), end="")
             else:
                 print("|" + str(number).center(4), end="")
-        print("|\n+----+----+----+----+")
+        print("|\n+" + "----+" * matrix_n)
 
 
 def show_leader_board():
@@ -325,7 +326,7 @@ def refresh_paint():
     print("Score: " + str(current_user_current_score))
     print("Up:W | Down:S | Left:A | Right:D | Quit:Q | Pause:P")
     print("==========================\n")
-    print("+----+----+----+----+")
+    print("+" + "----+" * matrix_n)
     print_matrix()
 
 
